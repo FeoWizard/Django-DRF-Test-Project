@@ -1,4 +1,4 @@
-# Django-DRF-Test-Project
+# Django/DRF Test project
 Тестовый проект по Django/DRF и документации Swagger
 
 
@@ -29,9 +29,6 @@ http://127.0.0.1:8000/employees/
 http://127.0.0.1:8000/swagger/
 
 http://127.0.0.1:8000/redoc/
-
-
-
 
 
 
