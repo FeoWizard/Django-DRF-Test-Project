@@ -1,21 +1,35 @@
 # Django-DRF-Test-Project
 Тестовый проект по Django/DRF и документации Swagger
 
+
 База данных - sqlite
+
 Версия Django - 4.2.0
+
 Версия Django REST Framework - 3.14.0
 
+
+
 Стандартная админка:
+
 http://127.0.0.1:8000/admin/
 
+
 Сама апишка:
+
 http://127.0.0.1:8000/
+
 http://127.0.0.1:8000/departments/
+
 http://127.0.0.1:8000/employees/
 
+
 Документация по API:
+
 http://127.0.0.1:8000/swagger/
+
 http://127.0.0.1:8000/redoc/
+
 
 
 
