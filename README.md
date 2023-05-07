@@ -1,4 +1,4 @@
-# Django/DRF Test project
+# Django/DRF/Swagger Test project
 Тестовый проект по Django/DRF и документации Swagger
 
 
