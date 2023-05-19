@@ -6,8 +6,8 @@ from rest_framework.pagination      import PageNumberPagination
 from rest_framework.viewsets        import GenericViewSet
 from rest_framework.authentication  import BasicAuthentication, SessionAuthentication
 from organization_project.settings  import MEDIA_ROOT
-from organization.models            import EmployeesModel, DepartmentsModel
-from organization.serializers       import EmployeesModelSerializer, DepartmentsModelSerializer
+from organization.models            import EmployeesModel, DepartmentsModel, ProjectsModel
+from organization.serializers       import EmployeesModelSerializer, DepartmentsModelSerializer, ProjectsSerializer, ProjectsObjectSerializer
 
 
 # Быстрая Web-Вьюха для картинок
@@ -44,3 +44,18 @@ class DepartmentsView(mixins.ListModelMixin, GenericViewSet):
     serializer_class   = DepartmentsModelSerializer
     queryset           = DepartmentsModel.objects.annotate( employees_count = Count('Employees'),
                                                             full_salary     = Sum('Employees__salary') )
+
+
+class ProjectsView(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet):
+    permission_classes     = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    serializer_class       = ProjectsSerializer
+    queryset               = ProjectsModel.objects.all()
+
+
+    def get_serializer_class(self):
+        if   (self.action == "list"):
+            return ProjectsSerializer
+
+        elif (self.action == "retrieve"):
+            return ProjectsObjectSerializer

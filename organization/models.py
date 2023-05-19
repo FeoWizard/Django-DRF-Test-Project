@@ -66,3 +66,14 @@ class DepartmentsModel(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ProjectsModel(models.Model):
+    class Meta:
+        verbose_name        = "Проект"
+        verbose_name_plural = "Проекты"
+
+    id        = models.AutoField(primary_key = True, unique = True)
+    title     = models.CharField(verbose_name       = "Название", max_length = 200)
+    director  = models.ForeignKey(verbose_name      = "Руководитель", to = EmployeesModel, on_delete = models.SET_NULL, null = True, related_name = "project_director")
+    employees = models.ManyToManyField(verbose_name = "Сотрудники",   to = EmployeesModel)

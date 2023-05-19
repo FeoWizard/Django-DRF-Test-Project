@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models        import EmployeesModel, DepartmentsModel
+from .models        import EmployeesModel, DepartmentsModel, ProjectsModel
 from .validators    import EmployeesValidator
 
 
@@ -25,3 +25,18 @@ class DepartmentsModelSerializer(serializers.ModelSerializer):
                    "director",
                    "employees_count",
                    "full_salary" ]
+
+
+class ProjectsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = ProjectsModel
+        fields = [ "id", "title" ]
+
+
+class ProjectsObjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = ProjectsModel
+        fields = "__all__"
+
+    director  = EmployeesModelSerializer()
+    employees = EmployeesModelSerializer(many = True)
