@@ -23,6 +23,8 @@ http://127.0.0.1:8000/departments/
 
 http://127.0.0.1:8000/employees/
 
+http://127.0.0.1:8000/projects/
+
 
 Документация по API:
 
